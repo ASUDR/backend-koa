@@ -51,5 +51,7 @@ Group.belongsTo(Faculty, {
   foreignKey: {
     name: 'facultyId',
     allowNull: false
-  }
+  },
+  onUpdate: 'CASCADE',
+  onDelete: 'CASCADE'
 });
