@@ -1,5 +1,6 @@
 import Sequelize, { Optional } from 'sequelize';
 import sequelize from '../../sequelize';
+import { Faculty } from '../..';
 
 const { DataTypes, Model } = Sequelize;
 
@@ -35,4 +36,12 @@ Hostel.init({
   schema: 'university',
   modelName: 'hostels',
   timestamps: false
+});
+
+Hostel.belongsToMany(Faculty, {
+  through: 'university.hostels_to_universities',
+  sourceKey: 'hostel_id',
+  targetKey: 'faculty_id',
+  onUpdate: 'CASCADE',
+  onDelete: 'CASCADE'
 });
