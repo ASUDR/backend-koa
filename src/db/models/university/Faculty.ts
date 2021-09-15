@@ -29,6 +29,7 @@ Faculty.init({
 
   shortName: {
     type: DataTypes.STRING(16),
+    field: 'short_name',
     allowNull: false,
     unique: true
   },
