@@ -5,3 +5,4 @@ export * from './models/university/Group';
 export * from './models/university/Hostel';
 export * from './models/university/Floor';
 export * from './models/university/Room';
+export * from './models/persons/Lodger';
