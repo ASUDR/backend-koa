@@ -44,7 +44,13 @@ Floor.init({
   sequelize,
   schema: 'university',
   modelName: 'hostel_floors',
-  timestamps: false
+  timestamps: false,
+  indexes: [
+    {
+      unique: true,
+      fields: ['hostel_id', 'number']
+    }
+  ]
 });
 
 Floor.belongsTo(Hostel, {
