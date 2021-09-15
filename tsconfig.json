@@ -18,6 +18,7 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false
   }
 }
