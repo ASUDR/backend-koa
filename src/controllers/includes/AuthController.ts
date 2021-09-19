@@ -10,7 +10,7 @@ export default class AuthController {
 
   @routerExceptionsCatcher
   public static async signIn(ctx: Context): Promise<void> {
-    ctx.body = new Response(true, { id: ctx.session!.passport.user });
+    ctx.body = new Response(true, { id: ctx.session?.passport.user });
   }
 
   @routerExceptionsCatcher

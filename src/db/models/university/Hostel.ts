@@ -1,6 +1,6 @@
 import Sequelize, { Optional } from 'sequelize';
 import sequelize from '../../sequelize';
-import { Faculty } from '../..';
+import { Faculty, HostelsToFaculties } from '../..';
 
 const { DataTypes, Model } = Sequelize;
 
@@ -39,9 +39,9 @@ Hostel.init({
 });
 
 Hostel.belongsToMany(Faculty, {
-  through: 'university.hostels_to_faculties',
-  sourceKey: 'hostel_id',
-  targetKey: 'faculty_id',
-  onUpdate: 'CASCADE',
-  onDelete: 'CASCADE'
+  through: HostelsToFaculties
+});
+
+Faculty.belongsToMany(Hostel, {
+  through: HostelsToFaculties
 });
