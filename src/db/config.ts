@@ -6,7 +6,7 @@ export const config: {
   username: string,
   password: string
 } = {
-  dialect: 'postgres',
+  dialect: process.env.DBMS!,
   host: process.env.DB_HOST!,
   port: +process.env.DB_PORT!,
   database: process.env.DB_NAME!,
@@ -14,4 +14,5 @@ export const config: {
   password: process.env.DB_PASSWORD!
 };
 
-export const connectionString: string = `postgres://${config.username}:${config.password}@${config.host}:${config.port}/${config.database}`;
+export const connectionString: string =
+  `${process.env.DB_PROTOCOL!}://${config.username}:${config.password}@${config.host}:${config.port}/${config.database}`;
