@@ -39,7 +39,7 @@ Hostel.init({
 });
 
 Hostel.belongsToMany(Faculty, {
-  through: 'university.hostels_to_universities',
+  through: 'university.hostels_to_faculties',
   sourceKey: 'hostel_id',
   targetKey: 'faculty_id',
   onUpdate: 'CASCADE',
