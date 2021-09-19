@@ -10,7 +10,9 @@ export interface HostelAttributes {
 }
 
 export interface HostelAttributesInput extends Optional<HostelAttributes, 'id'> {}
-export interface HostelAttributesOutput extends Required<HostelAttributes> {}
+export interface HostelAttributesOutput extends Required<HostelAttributes> {
+  faculties?: Array<Faculty>
+}
 
 export class Hostel
   extends Model<HostelAttributes, HostelAttributesInput>
@@ -39,9 +41,13 @@ Hostel.init({
 });
 
 Hostel.belongsToMany(Faculty, {
-  through: FacultyHostels
+  through: FacultyHostels,
+  onUpdate: 'CASCADE',
+  onDelete: 'CASCADE'
 });
 
 Faculty.belongsToMany(Hostel, {
-  through: FacultyHostels
+  through: FacultyHostels,
+  onUpdate: 'CASCADE',
+  onDelete: 'CASCADE'
 });
