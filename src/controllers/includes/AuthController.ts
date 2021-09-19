@@ -1,13 +1,10 @@
-import Router from '@koa/router';
 import { AuthService } from '../../services';
 import {
   routerExceptionsCatcher,
   Context, BaseApiSchema
 } from '../../utils';
 
-const router: Router = new Router({
-  prefix: '/auth'
-});
+
 export default class AuthController {
   private static service: AuthService = new AuthService();
 
