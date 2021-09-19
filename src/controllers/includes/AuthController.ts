@@ -1,7 +1,7 @@
 import { AuthService } from '../../services';
 import {
   routerExceptionsCatcher,
-  Context, BaseApiSchema
+  Context, Response
 } from '../../utils';
 
 
@@ -10,29 +10,13 @@ export default class AuthController {
 
   @routerExceptionsCatcher
   public static async signIn(ctx: Context): Promise<void> {
-    try {
-      const result: BaseApiSchema = {
-        success: true,
-        data: {
-          id: ctx.session!.passport.user
-        }
-      };
-
-      ctx.body = result;
-    } catch (err) {
-      console.error(err);
-    }
+    ctx.body = new Response(true, { id: ctx.session!.passport.user });
   }
 
   @routerExceptionsCatcher
   public static async logout(ctx: Context & { logout: Function }): Promise<void> {
     await ctx.logout();
     ctx.session = null;
-
-    const result: BaseApiSchema = {
-      success: true
-    };
-
-    ctx.body = result;
+    ctx.body = new Response(true);
   }
 }
