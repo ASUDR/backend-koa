@@ -45,7 +45,7 @@
     "@types/koa-passport": "^4.0.2",
     "@types/koa-redis": "^4.0.1",
     "@types/koa-session": "^5.10.4",
-    "@types/node": "^16.7.1",
+    "@types/node": "^16.9.3",
     "@types/passport-local": "^1.0.34",
     "@types/validator": "^13.6.3",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
