@@ -1,4 +1,4 @@
-import { AuthService } from '../../services';
+// import { AuthService } from '../../services';
 import {
   routerExceptionsCatcher,
   Context, Response
@@ -6,7 +6,7 @@ import {
 
 
 export default class AuthController {
-  private static service: AuthService = new AuthService();
+  // private static service: AuthService = new AuthService();
 
   @routerExceptionsCatcher
   public static async signIn(ctx: Context): Promise<void> {

@@ -1,5 +1,5 @@
 export default class AuthService {
-  private static saltRounds: number = 10;
+  // private static saltRounds: number = 10;
 
 
 }
