@@ -3,24 +3,24 @@ import sequelize from '../../sequelize';
 
 const { DataTypes, Model } = Sequelize;
 
-export interface HostelsToFacultiesAttributes {
+export interface FacultyHostelsAttributes {
   id: number;
   hostelId: number;
   facultyId: number;
 }
 
-export interface HostelsToFacultiesAttributesInput extends Optional<HostelsToFacultiesAttributes, 'id'> {}
-export interface HostelsToFacultiesAttributesOutput extends Required<HostelsToFacultiesAttributes> {}
+export interface FacultyHostelsAttributesInput extends Optional<FacultyHostelsAttributes, 'id'> {}
+export interface FacultyHostelsAttributesOutput extends Required<FacultyHostelsAttributes> {}
 
-export class HostelsToFaculties
-  extends Model<HostelsToFacultiesAttributes, HostelsToFacultiesAttributesInput>
-  implements HostelsToFacultiesAttributes {
+export class FacultyHostels
+  extends Model<FacultyHostelsAttributes, FacultyHostelsAttributesInput>
+  implements FacultyHostelsAttributes {
     public id: number;
     public hostelId: number;
     public facultyId: number;
 }
 
-HostelsToFaculties.init({
+FacultyHostels.init({
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -40,7 +40,7 @@ HostelsToFaculties.init({
   }
 }, {
   sequelize,
-  schema: 'university',
-  modelName: 'hostels_to_faculties',
+  schema: 'objects',
+  modelName: 'faculty_hostels',
   timestamps: false
 });

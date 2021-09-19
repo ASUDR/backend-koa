@@ -1,6 +1,6 @@
 export { default as sequelize } from './sequelize';
 export * from './models/objects/Country';
-export * from './models/university/HostelsToFaculties';
+export * from './models/objects/HostelsToFaculties';
 export * from './models/university/Faculty';
 export * from './models/university/Group';
 export * from './models/university/Hostel';

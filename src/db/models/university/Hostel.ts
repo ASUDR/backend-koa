@@ -1,6 +1,6 @@
 import Sequelize, { Optional } from 'sequelize';
 import sequelize from '../../sequelize';
-import { Faculty, HostelsToFaculties } from '../..';
+import { Faculty, FacultyHostels } from '../..';
 
 const { DataTypes, Model } = Sequelize;
 
@@ -39,9 +39,9 @@ Hostel.init({
 });
 
 Hostel.belongsToMany(Faculty, {
-  through: HostelsToFaculties
+  through: FacultyHostels
 });
 
 Faculty.belongsToMany(Hostel, {
-  through: HostelsToFaculties
+  through: FacultyHostels
 });
