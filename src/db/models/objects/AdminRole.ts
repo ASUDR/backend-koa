@@ -14,8 +14,8 @@ export interface AdminRoleAttributesOutput extends Required<AdminRoleAttributes>
 export class AdminRole
   extends Model<AdminRoleAttributes, AdminRoleAttributesInput>
   implements AdminRoleAttributes {
-    id: number;
-    name: string;
+    public id: number;
+    public name: string;
 }
 
 AdminRole.init({

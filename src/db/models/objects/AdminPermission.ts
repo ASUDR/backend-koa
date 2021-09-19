@@ -20,11 +20,11 @@ export interface AdminPermissionAttributesOutput extends Required<AdminPermissio
 export class AdminPermission
   extends Model<AdminPermissionAttributes, AdminPermissionAttributesInput>
   implements AdminPermissionAttributes {
-    id: number;
-    roleId: number;
-    name: string;
-    read: boolean;
-    write: boolean;
+    public id: number;
+    public roleId: number;
+    public name: string;
+    public read: boolean;
+    public write: boolean;
 }
 
 AdminPermission.init({
