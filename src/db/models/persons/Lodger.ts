@@ -35,15 +35,15 @@ export class Lodger
     public password: string;
     public firstName: string;
     public lastName: string;
-    public patronymic?: string;
+    public patronymic: string;
     public groupId: number;
     public roomId: number;
-    public phoneNumber?: string;
-    public extraPhoneNumber?: string;
-    public uniContractNumber?: number;
-    public hostelContractNumber?: number;
-    public hostelContractDate?: Date;
-    public countryId?: number;
+    public phoneNumber: string;
+    public extraPhoneNumber: string;
+    public uniContractNumber: number;
+    public hostelContractNumber: number;
+    public hostelContractDate: Date;
+    public countryId: number;
 }
 
 Lodger.init({
