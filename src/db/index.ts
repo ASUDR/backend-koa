@@ -8,3 +8,4 @@ export * from './models/university/Room';
 export * from './models/persons/Lodger';
 export * from './models/objects/AdminRole';
 export * from './models/objects/AdminPermission';
+export * from './models/persons/Admin';
