@@ -1,7 +1,10 @@
 import Sequelize, { Optional } from 'sequelize';
 import cryptoRandomString from 'crypto-random-string';
 import sequelize from '../../sequelize';
-import { AdminRole, Faculty, Hostel } from '../..';
+import {
+  AdminRole, AdminHostels,
+  Faculty, Hostel
+} from '../..';
 
 const { DataTypes, Model } = Sequelize;
 
@@ -106,9 +109,13 @@ Admin.belongsTo(Faculty, {
 });
 
 Admin.belongsToMany(Hostel, {
-  through: 'university.admin_hostels',
-  sourceKey: 'admin_id',
-  targetKey: 'hostel_id',
+  through: AdminHostels,
+  onUpdate: 'CASCADE',
+  onDelete: 'CASCADE'
+});
+
+Hostel.belongsToMany(Admin, {
+  through: AdminHostels,
   onUpdate: 'CASCADE',
   onDelete: 'CASCADE'
 });
