@@ -1,8 +1,8 @@
 {
-  "name": "affarea",
+  "name": "ASUDR",
   "version": "1.0.0",
   "type": "module",
-  "description": "Backend for Affarea",
+  "description": "Backend for ASUDR",
   "main": "app.ts",
   "scripts": {
     "start": "npm run build && npm run up",
