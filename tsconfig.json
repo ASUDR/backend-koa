@@ -2,6 +2,7 @@
   "include": ["src/**/*"],
   "compilerOptions": {
     "target": "es6",
+    "module": "commonjs",
     "moduleResolution": "node",
     "rootDir": "src",
     "outDir": "dist",
