@@ -1,0 +1,46 @@
+{
+	"definitions": {},
+	"info": {
+		"description": "Backend for ASUDR",
+		"license": {
+			"name": "ISC"
+		},
+		"title": "ASUDR",
+		"version": "1.0.0"
+	},
+	"paths": {
+		"/auth": {
+			"post": {
+				"operationId": "AuthServiceSignIn",
+				"produces": [
+					"text/html"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"auth"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "ctx",
+						"required": true,
+						"schema": {
+							"type": "object"
+						}
+					}
+				]
+			}
+		}
+	},
+	"swagger": "2.0",
+	"securityDefinitions": {}
+}

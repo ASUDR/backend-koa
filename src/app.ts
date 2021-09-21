@@ -1,15 +1,28 @@
 import Koa from 'koa';
 import passport from 'koa-passport';
+import { koaSwagger } from 'koa2-swagger-ui';
 import helmet from 'koa-helmet';
 import bodyParser from 'koa-bodyparser';
 import session from 'koa-session';
 import router from './routes/mainRouter';
 import config from './configs/koaSession';
 import { Context, Next } from './utils';
+import swaggerOptions from './swagger.json';
 import './db';
+
+console.log(swaggerOptions);
 
 const app: Koa = new Koa();
 const port: number = +process.env.BACKEND_PORT!;
+
+app.use(
+  koaSwagger({
+    routePrefix: '/swagger',
+    swaggerOptions: {
+      spec: swaggerOptions
+    }
+  })
+);
 
 app.keys = [process.env.KOA_KEY!];
 app.use(async (ctx: Context, next: Next) => {
