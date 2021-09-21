@@ -6,7 +6,7 @@
   "main": "app.ts",
   "scripts": {
     "start": "npm run build && npm run up",
-    "up": "node --experimental-specifier-resolution=node dist/app.js",
+    "up": "node --trace-deprecation --experimental-specifier-resolution=node dist/app.js",
     "build": "tsc && echo 'End of tsc'",
     "lint": "eslint --ext .ts src/",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,11 +27,14 @@
     "koa-passport": "^4.1.4",
     "koa-redis": "^4.0.1",
     "koa-session": "^6.2.0",
+    "koa-swagger-decorator": "^1.7.7",
+    "koa2-swagger-ui": "^5.2.0",
     "nodemon": "^2.0.12",
     "passport-local": "^1.0.0",
     "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.6.2",
+    "swagger-generator-koa": "^2.0.0",
     "winston": "^3.3.3"
   },
   "devDependencies": {

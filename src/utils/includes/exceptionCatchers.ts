@@ -47,7 +47,7 @@ export const exceptionsCatcher = (
     try {
       const result: any = await method.apply(target, args);
       return result;
-    } catch (err) {
+    } catch (err: any) {
       console.log(err);
       const errText: string = defineErrorMessage(err);
       console.error(`exceptionsCatcher caught error in method [${method.name}]: ${errText}`);
@@ -67,7 +67,7 @@ export const routerExceptionsCatcher = (
   descriptor.value = async (...args: any) => {
     try {
       await method.apply(target, args);
-    } catch (err) {
+    } catch (err: any) {
       const [ctx] = args;
       const httpStatusCode: number = err.httpStatusCode || httphttpStatusCodes.BAD_REQUEST;
       const result: BaseApiSchema = {
