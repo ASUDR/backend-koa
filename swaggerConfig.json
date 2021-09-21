@@ -1,0 +1,6 @@
+{
+  "swagger": {
+      "outputDirectory": "./docs",
+      "entryFile": "./src/services/general/auth.ts"
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "name": "affarea",
+  "name": "ASUDR",
   "version": "1.0.0",
   "type": "module",
-  "description": "Backend for Affarea",
+  "description": "Backend for ASUDR",
   "main": "app.ts",
   "scripts": {
     "start": "npm run build && npm run up",
@@ -56,6 +56,8 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.24.0",
-    "typedoc": "^0.22.4"
+    "typedoc": "^0.22.4",
+    "typescript-rest": "^3.0.4",
+    "typescript-rest-swagger": "^1.1.7"
   }
 }
