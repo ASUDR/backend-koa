@@ -8,6 +8,7 @@
     "start": "npm run build && npm run up",
     "up": "node --trace-deprecation --experimental-specifier-resolution=node dist/app.js",
     "build": "tsc && echo 'End of tsc'",
+    "gendoc": "npx typedoc --out docs --entryPointStrategy expand ./src",
     "lint": "eslint --ext .ts src/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

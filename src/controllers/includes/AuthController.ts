@@ -4,7 +4,6 @@ import {
   Context, Response
 } from '../../utils';
 
-
 export default class AuthController {
   // private static service: AuthService = new AuthService();
 
