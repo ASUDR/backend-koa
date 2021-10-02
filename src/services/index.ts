@@ -1,1 +1,1 @@
-export { default as AuthService } from './general/AuthService';
+export { default as AuthService } from './includes/AuthService';

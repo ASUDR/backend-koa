@@ -1,22 +1,21 @@
 import Router from '@koa/router';
-import { BaseApiError, Context, Next } from '../utils';
-import auth from './general/auth';
+import {
+  BaseApiError, Context, Next, Response
+} from '../utils';
+import auth from './includes/AuthRouter';
 
 const mainRouter: Router = new Router({
   prefix: '/api'
 });
 
-mainRouter.use(async (ctx: Context | any, next: Next): Promise<any> => {
+mainRouter.use(async (ctx: Context, next: Next): Promise<any> => {
   if (
-    ['/api/auth/signUp', '/api/auth/signIn'].includes(ctx.request.path)
-    || 'passport' in ctx.session
+    ['/api/auth/signIn'].includes(ctx.request.path)
+    || ctx.session?.hasOwnProperty('passport')
   ) {
     await next();
   } else {
-    ctx.body = {
-      success: false,
-      error: new BaseApiError('Unauthorized', 401, 401)
-    };
+    ctx.body = new Response(false, new BaseApiError('Unauthorized', 401, 401));
   }
 });
 
