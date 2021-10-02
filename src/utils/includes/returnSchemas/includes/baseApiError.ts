@@ -1,4 +1,4 @@
-import { httphttpStatusCodes } from '../..';
+import { httphttpStatusCodes } from '../../..';
 
 export default class BaseApiError extends Error {
   constructor(

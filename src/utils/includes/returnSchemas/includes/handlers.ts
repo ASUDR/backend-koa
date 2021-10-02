@@ -1,4 +1,4 @@
-import { logger, Context } from '../..';
+import { logger, Context } from '../../..';
 import BaseApiError from './baseApiError';
 
 export const handleApiError = (err: BaseApiError, source: string, ctx: Context) => {

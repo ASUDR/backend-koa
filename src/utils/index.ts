@@ -1,6 +1,6 @@
 export * from './includes/exceptionCatchers';
-export * from './returnSchemas';
-export * from './types';
+export * from './includes/returnSchemas';
+export * from './includes/types';
 export * from './validationSchemas';
 export { default as Validator } from './includes/validator';
 export { default as lodgersPassport } from './includes/lodgersPassport';

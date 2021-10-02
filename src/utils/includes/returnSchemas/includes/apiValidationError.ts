@@ -1,4 +1,4 @@
-import { httphttpStatusCodes } from '../..';
+import { httphttpStatusCodes } from '../../..';
 import BaseApiError from './baseApiError';
 
 export default class ApiValidationError extends BaseApiError {
