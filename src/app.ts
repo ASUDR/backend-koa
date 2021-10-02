@@ -17,7 +17,6 @@ const port: number = +process.env.BACKEND_PORT!;
 
 app.use(
   koaSwagger({
-    routePrefix: '/swagger',
     swaggerOptions: {
       spec: swaggerOptions
     }
