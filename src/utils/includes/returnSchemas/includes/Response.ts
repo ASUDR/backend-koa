@@ -1,26 +1,23 @@
 import { BaseApiError } from '..';
 import { Context } from '../../..';
 
-interface BaseResponse {
+interface BaseResponse<T extends object> {
   success: boolean;
   statusCode: number;
+  data?: T;
 }
 
-interface SuccessResponse extends BaseResponse {
-  data?: any;
-}
-
-interface ErrorResponse extends BaseResponse {
+interface ErrorResponse<T extends object> extends BaseResponse<T> {
   error?: BaseApiError;
 }
 
-class ResponseData implements SuccessResponse, ErrorResponse {
+class ResponseData<T extends object> implements BaseResponse<T>, ErrorResponse<T> {
   public error?: BaseApiError;
 
   constructor(
     public success: boolean,
     public statusCode: number,
-    public data?: object
+    public data?: T
   ) {
     if (this.data instanceof BaseApiError) {
       this.error = this.data;
