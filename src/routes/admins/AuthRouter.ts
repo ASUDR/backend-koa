@@ -1,5 +1,5 @@
 import Router from '@koa/router';
-import { AuthController } from '../../controllers';
+import { AdminAuthController } from '../../controllers';
 import { Validator, checkAuth, adminsPassport } from '../../utils';
 
 const router: Router = new Router({
@@ -10,9 +10,9 @@ router.post(
   '/signIn',
   Validator.signInValidator,
   adminsPassport.authenticate('local'),
-  AuthController.signIn
+  AdminAuthController.signIn
 );
 
-router.all('/logout', checkAuth, AuthController.logout);
+router.all('/logout', checkAuth, AdminAuthController.logout);
 
 export default router;

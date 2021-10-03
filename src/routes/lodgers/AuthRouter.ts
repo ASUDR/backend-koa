@@ -1,5 +1,5 @@
 import Router from '@koa/router';
-import { AuthController } from '../../controllers';
+import { LodgerAuthController } from '../../controllers';
 import { Validator, checkAuth, lodgersPassport } from '../../utils';
 
 const router: Router = new Router({
@@ -10,9 +10,9 @@ router.post(
   '/signIn',
   Validator.signInValidator,
   lodgersPassport.authenticate('local'),
-  AuthController.signIn
+  LodgerAuthController.signIn
 );
 
-router.all('/logout', checkAuth, AuthController.logout);
+router.all('/logout', checkAuth, LodgerAuthController.logout);
 
 export default router;
