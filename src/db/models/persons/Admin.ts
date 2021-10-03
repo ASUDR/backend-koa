@@ -10,7 +10,8 @@ const { DataTypes, Model } = Sequelize;
 
 export interface AdminAttributes {
   id: number;
-  password: string;
+  username: string;
+  passwordHash: string;
   firstName: string;
   lastName: string;
   patronymic?: string;
@@ -22,18 +23,20 @@ export interface AdminAttributesInput extends Optional<AdminAttributes, 'id'> {}
 export interface AdminAttributesOutput extends Required<AdminAttributes> {
   role?: AdminRole;
   faculty?: Faculty;
+  hostels?: Array<Hostel>;
 }
 
 export class Admin
   extends Model<AdminAttributes, AdminAttributesInput>
   implements AdminAttributes {
     public id: number;
-    public password: string;
+    public username: string;
+    public passwordHash: string;
     public firstName: string;
     public lastName: string;
-    public patronymic?: string;
+    public patronymic: string;
     public roleId: number;
-    public facultyId?: number;
+    public facultyId: number;
 }
 
 Admin.init({
@@ -43,8 +46,15 @@ Admin.init({
     autoIncrement: true
   },
 
-  password: {
+  username: {
+    type: DataTypes.STRING(32),
+    allowNull: false,
+    unique: true
+  },
+
+  passwordHash: {
     type: DataTypes.STRING(60),
+    field: 'password_hash',
     allowNull: false,
     defaultValue: cryptoRandomString(32)
   },

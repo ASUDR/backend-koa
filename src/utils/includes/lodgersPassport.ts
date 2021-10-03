@@ -26,7 +26,7 @@ passport.use(new LocalStrategy.Strategy(
       }
 
       if (password !== user.password) {
-        return cb(null, false, { message: 'email or password is invalid' });
+        return cb(null, false, { message: 'id or password is invalid' });
       }
 
       return cb(null, user);

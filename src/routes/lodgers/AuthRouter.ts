@@ -1,7 +1,6 @@
 import Router from '@koa/router';
-import passport from 'koa-passport';
 import { AuthController } from '../../controllers';
-import { Validator, checkAuth } from '../../utils';
+import { Validator, checkAuth, lodgersPassport } from '../../utils';
 
 const router: Router = new Router({
   prefix: '/auth'
@@ -10,7 +9,7 @@ const router: Router = new Router({
 router.post(
   '/signIn',
   Validator.signInValidator,
-  passport.authenticate('local'),
+  lodgersPassport.authenticate('local'),
   AuthController.signIn
 );
 
