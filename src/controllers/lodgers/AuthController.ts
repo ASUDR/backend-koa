@@ -9,13 +9,13 @@ export default class AuthController {
 
   @routerExceptionsCatcher
   public static async signIn(ctx: Context): Promise<void> {
-    ctx.body = new Response(true, { id: ctx.session?.passport.user });
+    new Response(ctx, true, { id: ctx.session?.passport.user.id });
   }
 
   @routerExceptionsCatcher
-  public static async logout(ctx: Context & { logout: Function }): Promise<void> {
+  public static async logout(ctx: Context): Promise<void> {
     await ctx.logout();
     ctx.session = null;
-    ctx.body = new Response(true);
+    new Response(ctx, true);
   }
 }

@@ -10,18 +10,8 @@ import { Context, Next } from './utils';
 import swaggerOptions from './swagger.json';
 import './db';
 
-console.log(swaggerOptions);
-
 const app: Koa = new Koa();
 const port: number = +process.env.BACKEND_PORT!;
-
-app.use(
-  koaSwagger({
-    swaggerOptions: {
-      spec: swaggerOptions
-    }
-  })
-);
 
 app.keys = [process.env.KOA_KEY!];
 app.use(async (ctx: Context, next: Next) => {
@@ -38,6 +28,13 @@ app.use(session(config, app));
 app
   .use(router.routes())
   .use(router.allowedMethods());
+app.use(
+  koaSwagger({
+    swaggerOptions: {
+      spec: swaggerOptions
+    }
+  })
+);
 
 if (process.env.NODE_ENV === 'production') {
   app.proxy = true;

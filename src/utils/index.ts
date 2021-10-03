@@ -7,3 +7,4 @@ export { default as lodgersPassport } from './includes/lodgersPassport';
 export { default as CSRF } from './includes/CSRF';
 export { default as httphttpStatusCodes } from './includes/httpStatusCodes';
 export { default as logger } from './includes/logger';
+export { default as checkAuth } from './includes/checkAuth';

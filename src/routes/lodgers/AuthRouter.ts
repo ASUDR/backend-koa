@@ -1,7 +1,7 @@
 import Router from '@koa/router';
 import passport from 'koa-passport';
 import { AuthController } from '../../controllers';
-import { Validator } from '../../utils';
+import { Validator, checkAuth } from '../../utils';
 
 const router: Router = new Router({
   prefix: '/auth'
@@ -14,11 +14,11 @@ router.post(
   AuthController.signIn
 );
 
-router.post('/test', (ctx) => {
+router.post('/test', checkAuth, (ctx) => {
   console.log(ctx.session);
   ctx.body = 'pass';
 });
 
-router.all('/logout', AuthController.logout);
+router.all('/logout', checkAuth, AuthController.logout);
 
 export default router;

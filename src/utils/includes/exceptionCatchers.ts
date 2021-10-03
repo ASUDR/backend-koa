@@ -16,20 +16,10 @@ const defineErrorMessage = (err: Error): string => {
 
 const defineErrorCode = (errText: string): number => {
   switch (errText) {
-    case '"value" must be of type object':
-      return 2101;
-    case '"email" is required':
-      return 2102;
-    case 'email must be unique':
-      return 2103;
-    case '"email" must be a valid email':
-      return 2104;
     case '"password" is required':
-      return 2105;
+      return 2101;
     case '"password" length must be at least 8 characters long':
-      return 2106;
-    case '"trafficSource" is required':
-      return 2107;
+      return 2102;
     default:
       return 2100;
   }

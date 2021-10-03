@@ -4,7 +4,7 @@ export default class BaseApiError extends Error {
   constructor(
     public description: string = 'Unknown error',
     public code: number,
-    public httpStatusCode: number = httphttpStatusCodes.BAD_REQUEST
+    public httpStatusCode: number | undefined = httphttpStatusCodes.BAD_REQUEST
   ) {
     super(description);
 
